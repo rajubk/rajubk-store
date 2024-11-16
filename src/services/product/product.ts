@@ -13,6 +13,6 @@ export const getProducts = async () => {
     const { products = [] } = await res.json();
     return products as Product[];
   } catch (error) {
-    throw new Error("Failed to fetch error");
+    throw new Error(`Failed to fetch error:${error}`);
   }
 };
