@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import ogImage from "@/app/opengraph-image.png";
 import "./globals.css";
 
 const geistSans = localFont({
