@@ -6,6 +6,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 
   return (products ?? []).map((x) => ({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/product/${x.id}`,
+    lastModified: new Date(),
   }));
 };
 
