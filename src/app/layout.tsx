@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import ogImage from "../app/opengraph-image.png";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -22,15 +21,6 @@ export const metadata: Metadata = {
   description: "Raju BK store for best purchases!!!",
   twitter: {
     card: "summary_large_image",
-  },
-  openGraph: {
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-      },
-    ],
   },
 };
 
