@@ -4,7 +4,8 @@ import { Product } from "./type";
 
 export const getProducts = async () => {
   try {
-    const res = await fetch(GET_PRODUCTS, {
+    const url = `${process.env.API_URL}/${GET_PRODUCTS}`;
+    const res = await fetch(url, {
       next: { revalidate: 3600, tags: [FETCH_PRODUCTS_TAG] },
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +20,8 @@ export const getProducts = async () => {
 
 export const getProduct = async (id: string) => {
   try {
-    const res = await fetch(`${GET_PRODUCTS}/${id}`, {
+    const url = `${process.env.API_URL}/${GET_PRODUCTS}/${id}`;
+    const res = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
       },

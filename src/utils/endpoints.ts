@@ -1,1 +1,1 @@
-export const GET_PRODUCTS = "https://fakestoreapi.rajubk.site/products";
+export const GET_PRODUCTS = "products";
