@@ -10,8 +10,22 @@ export const getProducts = async () => {
         "Content-Type": "application/json",
       },
     });
-    const { products = [] } = await res.json();
-    return products as Product[];
+    const products: Product[] = await res.json();
+    return products;
+  } catch (error) {
+    throw new Error(`Failed to fetch error:${error}`);
+  }
+};
+
+export const getProduct = async (id: string) => {
+  try {
+    const res = await fetch(`${GET_PRODUCTS}/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const product: Product = await res.json();
+    return product;
   } catch (error) {
     throw new Error(`Failed to fetch error:${error}`);
   }
