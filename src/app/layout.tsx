@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     template: "%s - Raju BK eCommerce Store",
   },
   description: "Raju BK store for best purchases!!!",
+  openGraph: {
+    images: ["https://store.rajubk.site/twitter-image.png"],
+  },
   twitter: {
     card: "summary_large_image",
   },
