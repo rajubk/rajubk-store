@@ -5,6 +5,7 @@ import Loading from "../../components/loading";
 import ProductWrapper from "./product-wrapper";
 import { Metadata } from "next";
 import { getProduct } from "@/services/product/product";
+import { logger } from "@/utils/pino";
 
 export const generateMetadata = async ({
   params,
@@ -25,6 +26,9 @@ export const generateMetadata = async ({
 
 const ProductPage = ({ params }: { params: { productId: string } }) => {
   const { productId = "-1" } = params;
+
+  logger.info({ productId }, "Product Page");
+
   return (
     <ErrorBoundary fallback={<div>Error</div>}>
       <Suspense fallback={<Loading />}>
