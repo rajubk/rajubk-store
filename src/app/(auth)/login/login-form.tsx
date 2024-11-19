@@ -14,7 +14,7 @@ const LoginForm = () => {
   const [state, loginAction] = useFormState(loginUser, null);
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
   } = useForm<FormField>({ defaultValues: { user: "", password: "" } });
   const formRef = useRef<HTMLFormElement>(null);
