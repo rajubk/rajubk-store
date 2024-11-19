@@ -1,4 +1,5 @@
 "use client";
+import { Notification } from "@/app/ui/types";
 import React, {
   createContext,
   Dispatch,
@@ -9,11 +10,6 @@ import React, {
   useState,
 } from "react";
 
-interface Notification {
-  variant: "standard" | "filled" | "outlined";
-  severity: "success" | "info" | "warning" | "error";
-  message: string;
-}
 interface NotificationContext {
   notification: Notification;
   clearNotification: () => void;

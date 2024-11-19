@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import LoginButton from "./login-button";
 import { useFormState } from "react-dom";
 import { loginUser, redirectHome } from "@/services/auth/action";
+import { useNotificationConext } from "@/providers/notification-provider";
 
 interface FormField {
   user: string;
@@ -18,6 +19,7 @@ const LoginForm = () => {
     handleSubmit,
   } = useForm<FormField>({ defaultValues: { user: "", password: "" } });
   const formRef = useRef<HTMLFormElement>(null);
+  const { setNotification } = useNotificationConext();
 
   useEffect(() => {
     const { status = "none" } = state || {};
@@ -26,7 +28,11 @@ const LoginForm = () => {
         redirectHome();
         break;
       case "failure":
-        alert("failed");
+        setNotification({
+          message: "Invalid username or password!!!",
+          severity: "error",
+          variant: "filled",
+        });
         break;
     }
   }, [state]);
@@ -54,7 +60,7 @@ const LoginForm = () => {
                 value: 10,
                 message: "maximum 10 character",
               },
-              required: "user name is required",
+              required: "User name is required",
             })}
             className="w-full border p-2"
           />
@@ -66,7 +72,13 @@ const LoginForm = () => {
           <input
             type="password"
             placeholder="Password"
-            {...register("password", { minLength: 4, required: true })}
+            {...register("password", {
+              minLength: {
+                value: 4,
+                message: "Minimum 4 characters",
+              },
+              required: "Password is required",
+            })}
             className="w-full border p-2"
           />
           {errors.password && (
