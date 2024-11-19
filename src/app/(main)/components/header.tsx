@@ -17,7 +17,7 @@ const Header = async () => {
             <div className="text-xs text-white">{cart.products.length}</div>
           </div>
         </Link>
-        <h4>Sign In</h4>
+        <Link href="/login">Login</Link>
       </div>
     </div>
   );
