@@ -25,7 +25,9 @@ const defaultValue: Notification = {
   severity: "info",
 };
 
-export const notificationContext = createContext<NotificationContext>();
+export const notificationContext = createContext<NotificationContext | null>(
+  null
+);
 
 export const NotificationProvider = ({ children }: { children: ReactNode }) => {
   const [notification, setNotification] = useState<Notification>(defaultValue);
