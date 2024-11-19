@@ -9,17 +9,24 @@ const Notification = ({ error }: { error?: string }) => {
     clearNotification,
   } = useContext(notificationContext);
 
-  clearNotification();
-
-  const notify = {
+  const notification = {
     message: error || message,
     severity: error ? "error" : severity,
     variant: variant,
   };
 
-  console.log(notify);
+  if (!notification.message) {
+    return null;
+  }
 
-  return <div>Notification</div>;
+  return (
+    <div className="w-full absolute top-0 left-0 right-0 flex justify-center items-center px-8 md:px-24 py-4">
+      <div className="w-full p-8 bg-red-300 flex justify-between items-center rounded-xl">
+        <p>{notification.message}</p>
+        <button onClick={clearNotification}>X</button>
+      </div>
+    </div>
+  );
 };
 
 export default Notification;
