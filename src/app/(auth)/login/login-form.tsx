@@ -26,7 +26,7 @@ const LoginForm = () => {
       <form
         action={loginAction}
         noValidate
-        className="w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg"
+        className="w-full md:w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg"
       >
         <input
           type="text"
