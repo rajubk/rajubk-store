@@ -4,6 +4,7 @@ import React, {
   Dispatch,
   ReactNode,
   SetStateAction,
+  useContext,
   useMemo,
   useState,
 } from "react";
@@ -25,9 +26,9 @@ const defaultValue: Notification = {
   severity: "info",
 };
 
-export const notificationContext = createContext<NotificationContext | null>(
-  null
-);
+export const notificationContext = createContext<NotificationContext>(null!);
+
+export const useNotificationConext = useContext(notificationContext);
 
 export const NotificationProvider = ({ children }: { children: ReactNode }) => {
   const [notification, setNotification] = useState<Notification>(defaultValue);
