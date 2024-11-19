@@ -5,9 +5,5 @@ export default function MainLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return (
-    <div className="w-screen h-screen flex">
-      <div className="flex-1">{children}</div>
-    </div>
-  );
+  return <div className="w-screen h-screen">{children}</div>;
 }
