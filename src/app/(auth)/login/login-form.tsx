@@ -35,7 +35,7 @@ const LoginForm = () => {
         });
         break;
     }
-  }, [state]);
+  }, [state, setNotification]);
 
   const onSubmit = () => {
     loginAction(new FormData(formRef.current!));
