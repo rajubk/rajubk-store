@@ -28,7 +28,7 @@ const defaultValue: Notification = {
 
 export const notificationContext = createContext<NotificationContext>(null!);
 
-export const useNotificationConext = useContext(notificationContext);
+export const useNotificationConext = () => useContext(notificationContext);
 
 export const NotificationProvider = ({ children }: { children: ReactNode }) => {
   const [notification, setNotification] = useState<Notification>(defaultValue);
