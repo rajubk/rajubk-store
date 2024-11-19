@@ -15,7 +15,7 @@ const Button = ({
   return (
     <button
       className={cx(
-        "px-4 py-2 text-white rounded-md flex justify-center items-center",
+        "px-4 py-2 text-white rounded-md flex justify-center items-center disabled:bg-gray-300",
         {
           "bg-blue-500": variant === "primary",
           "text-black border": variant === "secondary",
