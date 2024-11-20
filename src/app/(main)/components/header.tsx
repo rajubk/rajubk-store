@@ -27,7 +27,7 @@ const Header = async () => {
             </div>
           </Conditional>
         </Link>
-        <Conditional test={user} fallback={<Link href="/login">Logout</Link>}>
+        <Conditional test={user} fallback={<Link href="/login">Login</Link>}>
           <LogoutButton />
         </Conditional>
       </div>
