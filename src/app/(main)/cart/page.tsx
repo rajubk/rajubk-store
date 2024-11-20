@@ -22,7 +22,6 @@ const CartPage = async () => {
       </Suspense>
     </ErrorBoundary>
   );
-  ``;
 };
 
 export default CartPage;
