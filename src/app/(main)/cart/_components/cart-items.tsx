@@ -7,7 +7,7 @@ const CartItems = ({ cart }: { cart: Cart }) => {
 
   return (
     <>
-      <div className="w-full h-full flex flex-col py-8 space-y-8">
+      <div className="w-full h-full flex flex-col px-4 py-8 space-y-8">
         {products.map((item) => (
           <CartItem key={item.productId} item={item} />
         ))}
