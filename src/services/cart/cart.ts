@@ -33,8 +33,8 @@ export const getUserCart = async (userId: string) => {
         "Content-Type": "application/json",
       },
     });
-    const product: Cart[] = await res.json();
-    return product;
+    const [cart] = await res.json();
+    return cart as Cart;
   } catch (error) {
     throw new Error(`Failed to fetch error:${error}`);
   }

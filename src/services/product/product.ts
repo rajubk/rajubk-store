@@ -23,7 +23,7 @@ export const getProducts = async () => {
   }
 };
 
-export const getProduct = async (id: string) => {
+export const getProductById = async (id: string) => {
   try {
     const url = `${process.env.API_URL}/${GET_PRODUCTS}/${id}`;
     const res = await fetch(url, {

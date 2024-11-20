@@ -1,13 +1,13 @@
 import React from "react";
 import ProductDetail from "./_components/product-detail";
-import { getProduct } from "@/services/product/product";
+import { getProductById } from "@/services/product/product";
 
 const ProductWrapper = async ({
   productId,
 }: {
   productId: Readonly<string>;
 }) => {
-  const product = await getProduct(productId);
+  const product = await getProductById(productId);
 
   return <ProductDetail product={product} />;
 };

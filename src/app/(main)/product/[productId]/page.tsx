@@ -4,8 +4,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import Loading from "../../components/loading";
 import ProductWrapper from "./product-wrapper";
 import { Metadata } from "next";
-import { getProduct } from "@/services/product/product";
 import { logger } from "@/utils/pino";
+import { getProductById } from "@/services/product/product";
 
 export const generateMetadata = async ({
   params,
@@ -13,7 +13,7 @@ export const generateMetadata = async ({
   params: { productId: string };
 }): Promise<Metadata> => {
   const { productId = "-1" } = params;
-  const product = await getProduct(productId);
+  const product = await getProductById(productId);
   const { image = "", title, description } = product;
   return {
     title,
