@@ -24,7 +24,7 @@ export const getUsers = async () => {
   }
 };
 
-export const getUser = async (userId: string) => {
+export const getUserById = async (userId: string) => {
   try {
     const url = `${process.env.API_URL}/${GET_USERS}/${userId}`;
     const res = await fetch(url, {
@@ -43,14 +43,13 @@ export const getUserByPassword = async (username: string, password: string) => {
   try {
     const url = `${process.env.API_URL}/${GET_USERS}`;
     const userUrl = buildUrl(url, { username, password });
-    console.log("first", userUrl);
     const res = await fetch(userUrl, {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const product: USER = await res.json();
-    return product;
+    const user: USER[] = await res.json();
+    return user;
   } catch (error) {
     throw new Error(`Failed to fetch error:${error}`);
   }
