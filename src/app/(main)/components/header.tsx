@@ -10,7 +10,7 @@ const Header = async () => {
   let cart = null;
   if (user) {
     const data = await getUserCart(`${user.id}`);
-    cart = data?.[0];
+    cart = data;
   }
 
   return (
