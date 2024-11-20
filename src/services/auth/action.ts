@@ -1,11 +1,11 @@
 "use server";
 
 import { logger } from "@/utils/pino";
-import { getUserByPassword } from "./login";
 import { redirect } from "next/navigation";
 import isEmpty from "lodash/isEmpty";
 import { deleteCookie, setCookie } from "@/utils/cookie";
 import { ACTION_STATUS, USER_COOKIE_ID } from "@/utils/constants";
+import { getUserByPassword } from "../user/user";
 
 export const loginUser = async (_: unknown, formData: FormData) => {
   try {
