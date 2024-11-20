@@ -5,6 +5,6 @@ export interface CartProduct {
 export interface Cart {
   id: number;
   userId: number;
-  date: Date;
+  date: string;
   products: CartProduct[];
 }

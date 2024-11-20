@@ -1,7 +1,8 @@
 export const USER_COOKIE_ID = "user_id";
 
 export const ACTION_STATUS = {
+  NONE: "none",
   SUCCESS: "success",
   FAILURE: "failure",
-  NONE: "none",
+  LOGIN_REQUIRED: "login_required",
 };

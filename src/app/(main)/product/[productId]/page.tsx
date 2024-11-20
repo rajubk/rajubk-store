@@ -6,6 +6,8 @@ import ProductWrapper from "./product-wrapper";
 import { Metadata } from "next";
 import { logger } from "@/utils/pino";
 import { getProductById } from "@/services/product/product";
+import { NotificationProvider } from "@/providers/notification-provider";
+import Notification from "@/app/components/notification/notification";
 
 export const generateMetadata = async ({
   params,
@@ -33,7 +35,10 @@ const ProductPage = ({ params }: { params: { productId: string } }) => {
     <ErrorBoundary fallback={<div>Error</div>}>
       <Suspense fallback={<Loading />}>
         <Container>
-          <ProductWrapper productId={productId} />
+          <NotificationProvider>
+            <Notification />
+            <ProductWrapper productId={productId} />
+          </NotificationProvider>
         </Container>
       </Suspense>
     </ErrorBoundary>

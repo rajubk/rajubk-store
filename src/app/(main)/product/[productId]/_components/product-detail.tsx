@@ -1,10 +1,10 @@
 import { Product } from "@/services/product/type";
 import Image from "next/image";
 import React from "react";
-import AddCartButton from "./add-cart-button";
+import AddToCart from "./add-to-cart";
 
 const ProductDetail = ({ product }: { product: Readonly<Product> }) => {
-  const { image, title, price, category, description } = product;
+  const { id, image, title, price, category, description } = product;
   return (
     <div className="w-full h-full flex flex-col md:flex-row gap-8">
       <div className="flex-1 w-full h-96  flex justify-center items-center">
@@ -13,7 +13,7 @@ const ProductDetail = ({ product }: { product: Readonly<Product> }) => {
       <div className="flex-[2] flex flex-col space-y-8 p-4">
         <div className="text-5xl font-bold">{title}</div>
         <div className="text-xl text-slate-500">{`$${price}`}</div>
-        <AddCartButton />
+        <AddToCart productId={id} />
         <div>{category}</div>
         <div className=" text-slate-300">{description}</div>
       </div>
