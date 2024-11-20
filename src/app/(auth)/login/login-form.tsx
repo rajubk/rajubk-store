@@ -5,6 +5,7 @@ import LoginButton from "./login-button";
 import { useFormState } from "react-dom";
 import { loginUser, redirectHome } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
+import { revalidateLoggedUser } from "@/services/user/action";
 
 interface FormField {
   user: string;
@@ -25,6 +26,7 @@ const LoginForm = () => {
     const { status = "none" } = state || {};
     switch (status) {
       case "success":
+        revalidateLoggedUser();
         redirectHome();
         break;
       case "failure":

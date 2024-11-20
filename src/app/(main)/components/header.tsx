@@ -7,6 +7,7 @@ import LogoutButton from "./logout-button";
 
 const Header = async () => {
   const user = await getLoggedUser();
+  console.log("first", user);
   let cart = null;
   if (user) {
     const data = await getUserCart(`${user.id}`);
