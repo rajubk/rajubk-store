@@ -5,6 +5,7 @@ import LoginButton from "./login-button";
 import { useFormState } from "react-dom";
 import { loginUser, redirectHome } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
+import Link from "next/link";
 
 interface FormField {
   user: string;
@@ -88,6 +89,12 @@ const LoginForm = () => {
           )}
         </div>
         <LoginButton />
+        <span>
+          New User?{" "}
+          <Link className="text-blue-500 text-sm" href="/register">
+            Register
+          </Link>
+        </span>
       </form>
     </div>
   );

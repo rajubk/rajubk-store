@@ -1,18 +1,24 @@
 import React from "react";
-import LoginForm from "./register-form";
 import Container from "@/app/ui/container";
 import { NotificationProvider } from "@/providers/notification-provider";
 import Notification from "@/app/components/notification/notification";
+import { Metadata } from "next";
+import RegisterForm from "./register-form";
 
-const LoginPage = () => {
+export const metaData: Metadata = {
+  title: "Register",
+  description: "This is register page",
+};
+
+const RegisterPage = () => {
   return (
     <Container>
       <NotificationProvider>
         <Notification />
-        <LoginForm />
+        <RegisterForm />
       </NotificationProvider>
     </Container>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

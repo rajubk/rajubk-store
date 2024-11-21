@@ -6,6 +6,7 @@ import { redirectHome, registerUser } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
 import RegisterButton from "./register-button";
 import { ACTION_STATUS } from "@/utils/constants";
+import Link from "next/link";
 
 interface FormField {
   fullName: string;
@@ -15,7 +16,7 @@ interface FormField {
   email: string;
 }
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [state, registerAction] = useFormState(registerUser, null);
   const {
     register,
@@ -172,9 +173,15 @@ const LoginForm = () => {
           )}
         </div>
         <RegisterButton />
+        <span>
+          Already having account?{" "}
+          <Link className="text-blue-500 text-sm" href="/login">
+            Login
+          </Link>
+        </span>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
