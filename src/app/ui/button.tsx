@@ -7,7 +7,7 @@ const Button = ({
   className = "",
   ...props
 }: {
-  variant?: "primary" | "secondary" | "error";
+  variant?: "primary" | "secondary" | "naked" | "error";
   children: ReactNode;
   className?: string;
   [k: string]: unknown;
@@ -19,6 +19,7 @@ const Button = ({
         {
           "bg-blue-500": variant === "primary",
           "text-black border": variant === "secondary",
+          "bg-transparent": variant === "naked",
           "bg-red-500": variant === "error",
         },
         className.slice()

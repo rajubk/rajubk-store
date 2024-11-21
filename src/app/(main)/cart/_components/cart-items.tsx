@@ -1,6 +1,8 @@
 import { Cart } from "@/services/cart/type";
-import React from "react";
 import CartItem from "./cart-item";
+import Conditional from "@/app/ui/conditional";
+import { isEmpty } from "lodash";
+import EmptyCart from "./empty-cart";
 
 const CartItems = ({ cart }: { cart: Cart }) => {
   const { products = [] } = cart;
@@ -8,9 +10,11 @@ const CartItems = ({ cart }: { cart: Cart }) => {
   return (
     <>
       <div className="w-full h-full flex flex-col px-4 py-8 space-y-8">
-        {products.map((item) => (
-          <CartItem key={item.productId} item={item} />
-        ))}
+        <Conditional test={!isEmpty(products)} fallback={<EmptyCart />}>
+          {products.map((item) => (
+            <CartItem key={item.productId} item={item} />
+          ))}
+        </Conditional>
       </div>
     </>
   );

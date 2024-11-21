@@ -79,3 +79,20 @@ export const updateUserCart = async ({
     throw new Error(`Failed to update cart error`);
   }
 };
+
+export const emptyCart = async (cartId: number) => {
+  try {
+    const url = `${process.env.API_URL}/${GET_CARTS}/${cartId}`;
+    const res = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const cart: Cart = await res.json();
+    return cart;
+  } catch (error) {
+    logger.error({ error }, "cart | empty cart error");
+    throw new Error(`Failed to empty cart`);
+  }
+};

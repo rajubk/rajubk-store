@@ -2,6 +2,7 @@ import { CartProduct } from "@/services/cart/type";
 import { getProductById } from "@/services/product/product";
 import Image from "next/image";
 import React from "react";
+import DeleteCartItem from "./delete-cart-item";
 
 const CartItem = async ({ item }: { item: CartProduct }) => {
   const { productId, quantity } = item;
@@ -30,7 +31,10 @@ const CartItem = async ({ item }: { item: CartProduct }) => {
         {`${rate}(${count})`}
         <div className="text-xs text-slate-500">{category}</div>
       </div>
-      <div className="text-xs col-span-2"> {price}</div>
+      <div className="text-xs col-span-1"> {price}</div>
+      <div className=" col-span-1 text-red-500">
+        <DeleteCartItem productId={productId} />
+      </div>
     </div>
   );
 };

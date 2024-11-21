@@ -6,6 +6,8 @@ import CartWrapper from "./cart-wrapper";
 import { getLoggedUser } from "@/services/user/user";
 import { isEmpty } from "lodash";
 import { redirect } from "next/navigation";
+import { NotificationProvider } from "@/providers/notification-provider";
+import Notification from "@/app/components/notification/notification";
 
 const CartPage = async () => {
   const user = await getLoggedUser();
@@ -17,7 +19,10 @@ const CartPage = async () => {
     <ErrorBoundary fallback={<div>Error</div>}>
       <Suspense fallback={<Loading />}>
         <Container>
-          <CartWrapper />
+          <NotificationProvider>
+            <Notification />
+            <CartWrapper />
+          </NotificationProvider>
         </Container>
       </Suspense>
     </ErrorBoundary>
