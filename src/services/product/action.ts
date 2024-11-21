@@ -5,7 +5,8 @@ import { ACTION_STATUS } from "@/utils/constants";
 import { getLoggedUser } from "../user/user";
 import { createUserCart, getUserCart, updateUserCart } from "../cart/cart";
 import { formatISO } from "date-fns";
-import { Cart } from "../cart/type";
+import { Cart, CartProduct } from "../cart/type";
+import { isEmpty } from "lodash";
 
 export const addToCart = async (
   productId: number,
@@ -14,7 +15,7 @@ export const addToCart = async (
 ) => {
   try {
     logger.info("add to cart | started");
-    const quantity = formData.get("quantity")?.toString() ?? "";
+    const quantity = +(formData.get("quantity")?.toString() ?? "0");
 
     const user = await getLoggedUser();
     if (!user) {
@@ -28,7 +29,7 @@ export const addToCart = async (
         date: formatISO(new Date()),
         products: [
           {
-            productId: +productId,
+            productId: productId,
             quantity: +quantity,
           },
         ],
@@ -36,15 +37,28 @@ export const addToCart = async (
       createUserCart({ body });
       return { status: ACTION_STATUS.SUCCESS };
     }
-    const body: Partial<Cart> = {
-      products: [
-        ...cart.products,
-        {
-          productId: +productId,
-          quantity: +quantity,
-        },
-      ],
-    };
+    const { products = [] } = cart;
+    const product = products.filter((x) => x.productId === productId)?.[0];
+    let body = [] as Partial<Cart>;
+    if (!isEmpty(product)) {
+      body = {
+        products: products.map((x) =>
+          x.productId === productId
+            ? { productId, quantity: x.quantity + quantity }
+            : x
+        ) as CartProduct[],
+      };
+    } else {
+      body = {
+        products: [
+          ...cart.products,
+          {
+            productId: +productId,
+            quantity: +quantity,
+          },
+        ],
+      };
+    }
     await updateUserCart({ cartId: `${cart.id}`, body });
     return { status: ACTION_STATUS.SUCCESS };
   } catch (error) {
