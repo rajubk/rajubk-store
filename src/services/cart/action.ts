@@ -33,7 +33,10 @@ export const deleteCartItem = async (productId: number) => {
 export const emptyUserCart = async () => {
   try {
     const user = await getLoggedUser();
-    await emptyCart(`${user?.id}`);
+    if (isEmpty(user)) {
+      return { status: ACTION_STATUS.FAILURE };
+    }
+    await emptyCart(user?.id);
     return { status: ACTION_STATUS.SUCCESS };
   } catch (error) {
     logger.error({ error }, "delete cart | error");
