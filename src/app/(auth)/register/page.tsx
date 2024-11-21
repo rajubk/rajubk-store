@@ -5,7 +5,7 @@ import Notification from "@/app/components/notification/notification";
 import { Metadata } from "next";
 import RegisterForm from "./register-form";
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: "Register",
   description: "This is register page",
 };

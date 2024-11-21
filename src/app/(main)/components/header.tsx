@@ -4,6 +4,7 @@ import { getLoggedUser } from "@/services/user/user";
 import Link from "next/link";
 import React from "react";
 import LogoutButton from "./logout-button";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Header = async () => {
   const user = await getLoggedUser();
@@ -16,13 +17,13 @@ const Header = async () => {
   return (
     <div className="w-full flex justify-between shadow-lg px-8 py-2">
       <Link href="/home">
-        <h2>RBK Store</h2>
+        <div className="font-extrabold text-2xl">RajuBK Store</div>
       </Link>
-      <div className="flex space-x-8">
-        <Link href="/cart" className="relative">
-          <div>Cart</div>
+      <div className="flex items-center justify-start space-x-8 text-lg">
+        <Link href="/cart" className="relative text-xl">
+          <FaCartShopping />
           <Conditional test={cart}>
-            <div className="absolute -right-3 -top-1 w-5 h-5 flex justify-center items-center bg-blue-500 rounded-full">
+            <div className="absolute -right-2 -top-2 w-4 h-4 flex justify-center items-center bg-red-500 rounded-full">
               <div className="text-xs text-white">{cart?.products?.length}</div>
             </div>
           </Conditional>

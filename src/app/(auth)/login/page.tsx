@@ -8,7 +8,7 @@ import { isEmpty } from "lodash";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: "Login",
   description: "This is login page",
 };

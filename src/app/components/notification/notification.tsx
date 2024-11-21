@@ -15,7 +15,7 @@ const Notification = ({ error }: { error?: string }) => {
   }
 
   return (
-    <div className="w-full absolute top-0 left-0 right-0 flex justify-center items-center px-8 md:px-24 py-8">
+    <div className="w-full absolute top-0 left-0 right-0 flex justify-center items-center px-8 md:px-24 py-12">
       <InlineNotification
         message={error || message}
         severity={error ? "error" : severity}
