@@ -55,6 +55,22 @@ export const getUserById = async (userId: string) => {
   }
 };
 
+export const getUserByName = async (username: string) => {
+  try {
+    const url = `${process.env.API_URL}/${GET_USERS}`;
+    const userUrl = buildUrl(url, { username });
+    const res = await fetch(userUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const [user] = await res.json();
+    return user as USER;
+  } catch (error) {
+    throw new Error(`Failed to fetch error:${error}`);
+  }
+};
+
 export const getUserByPassword = async (username: string, password: string) => {
   try {
     const url = `${process.env.API_URL}/${GET_USERS}`;
@@ -65,6 +81,23 @@ export const getUserByPassword = async (username: string, password: string) => {
       },
     });
     const user: USER[] = await res.json();
+    return user;
+  } catch (error) {
+    throw new Error(`Failed to fetch error:${error}`);
+  }
+};
+
+export const addUser = async (body: USER) => {
+  try {
+    const url = `${process.env.API_URL}/${GET_USERS}`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    const user: USER = await res.json();
     return user;
   } catch (error) {
     throw new Error(`Failed to fetch error:${error}`);

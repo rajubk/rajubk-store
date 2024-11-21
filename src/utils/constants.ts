@@ -5,4 +5,5 @@ export const ACTION_STATUS = {
   SUCCESS: "success",
   FAILURE: "failure",
   LOGIN_REQUIRED: "login_required",
+  USER_EXISTS: "user_exists",
 };
