@@ -4,7 +4,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import Loading from "../../components/loading";
 import ProductWrapper from "./product-wrapper";
 import { Metadata } from "next";
-import { logger } from "@/utils/pino";
 import { getProductById } from "@/services/product/product";
 import { NotificationProvider } from "@/providers/notification-provider";
 import Notification from "@/app/components/notification/notification";
@@ -28,8 +27,6 @@ export const generateMetadata = async ({
 
 const ProductPage = ({ params }: { params: { productId: string } }) => {
   const { productId = "-1" } = params;
-
-  logger.info({ productId }, "Product Page");
 
   return (
     <ErrorBoundary fallback={<div>Error</div>}>

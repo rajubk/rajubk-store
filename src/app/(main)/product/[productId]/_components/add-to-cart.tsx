@@ -58,7 +58,7 @@ const AddToCart = ({ productId }: { productId: number }) => {
         addToCartAction(new FormData(formRef.current!))
       )}
       noValidate
-      className="flex flex-col space-y-2"
+      className="flex flex-col space-y-4"
     >
       <div>
         <input
