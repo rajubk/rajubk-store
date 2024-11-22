@@ -8,6 +8,7 @@ import { isEmpty } from "lodash";
 import { redirect } from "next/navigation";
 import { NotificationProvider } from "@/providers/notification-provider";
 import Notification from "@/app/components/notification/notification";
+import CartSummaryWrapper from "./_components/cart-summary/cart-summary-wrapper";
 
 const CartPage = async () => {
   const user = await getLoggedUser();
@@ -17,14 +18,17 @@ const CartPage = async () => {
   }
   return (
     <ErrorBoundary fallback={<div>Error</div>}>
-      <Suspense fallback={<Loading />}>
-        <Container>
-          <NotificationProvider>
-            <Notification />
+      <NotificationProvider>
+        <Notification />
+        <Suspense fallback={<Loading />}>
+          <Container>
             <CartWrapper />
-          </NotificationProvider>
-        </Container>
-      </Suspense>
+          </Container>
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <CartSummaryWrapper />
+        </Suspense>
+      </NotificationProvider>
     </ErrorBoundary>
   );
 };

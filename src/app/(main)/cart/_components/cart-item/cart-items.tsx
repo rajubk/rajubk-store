@@ -2,7 +2,7 @@ import { Cart } from "@/services/cart/type";
 import CartItem from "./cart-item";
 import Conditional from "@/app/ui/conditional";
 import { isEmpty } from "lodash";
-import EmptyCart from "./empty-cart";
+import EmptyCart from "../empty-cart";
 
 const CartItems = ({ cart }: { cart: Cart }) => {
   const { products = [] } = cart;

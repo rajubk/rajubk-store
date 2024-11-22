@@ -15,7 +15,7 @@ const Header = async () => {
   }
 
   return (
-    <div className="w-full flex justify-between shadow-lg px-4 md:px-8 py-2">
+    <div className="w-full bg-white flex justify-between shadow-lg px-4 md:px-8 py-2">
       <Link href="/home">
         <div className="font-extrabold text-2xl">RajuBK Store</div>
       </Link>
