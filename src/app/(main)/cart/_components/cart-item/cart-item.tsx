@@ -3,11 +3,11 @@ import { getProductById } from "@/services/product/product";
 import Image from "next/image";
 import React from "react";
 import DeleteCartItem from "./delete-cart-item";
+import Link from "next/link";
 
 const CartItem = async ({ item }: { item: CartProduct }) => {
   const { productId, quantity } = item;
   const {
-    category,
     description,
     image,
     price,
@@ -20,19 +20,30 @@ const CartItem = async ({ item }: { item: CartProduct }) => {
       <div className="col-span-2">
         <Image src={image} width={64} height={64} alt="monkey" />
       </div>
-      <div className="text-xs md:text-sm col-span-4">
-        {title.slice(0, 50)}
+      <div className="text-xs md:text-sm font-bold col-span-4">
+        <Link href={`product/${productId}`} className="text-blue-500 underline">
+          {title.slice(0, 30)}
+        </Link>
+        <div className=" md:hidden text-xs text-slate-500">
+          {description.slice(0, 40)}
+        </div>
         <div className="hidden md:block text-xs text-slate-500">
-          {description.slice(0, 200)}
+          {description.slice(0, 150)}
         </div>
       </div>
-      <div className="col-span-2">{quantity}</div>
-      <div className="text-xs col-span-2">
-        {`${rate}(${count})`}
-        <div className="text-xs text-slate-500">{category}</div>
+      <div className="col-span-2 flex flex-col items-center">
+        <div className="text-xs text-slate-500">Quantity</div>
+        <div className="font-bold ">{quantity}</div>
       </div>
-      <div className="text-xs col-span-1"> {price}</div>
-      <div className=" col-span-1 text-red-500">
+      <div className="hidden md:flex text-xs col-span-2 flex-col items-center">
+        <div className="text-xs text-slate-500">Ratings</div>
+        <div className="font-bold ">{`${rate}(${count})`}</div>
+      </div>
+      <div className="text-xs col-span-2 md:col-span-1 flex-col items-center">
+        <div className="text-xs text-slate-500">Price</div>
+        <div className="font-bold ">{`$${price}`}</div>
+      </div>
+      <div className=" col-span-2 md:col-span-1 text-red-500">
         <DeleteCartItem productId={productId} />
       </div>
     </div>

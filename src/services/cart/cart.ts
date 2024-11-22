@@ -3,6 +3,8 @@ import { FETCH_CARTS_TAG, FETCH_USER_CART_TAG } from "./constants";
 import { Cart } from "./type";
 import { logger } from "@/utils/pino";
 import { buildUrl } from "@/utils/url";
+import { isEmpty } from "lodash";
+import { getProductById } from "../product/product";
 
 export const getCarts = async () => {
   try {
@@ -94,5 +96,29 @@ export const emptyCart = async (cartId: number) => {
   } catch (error) {
     logger.error({ error }, "cart | empty cart error");
     throw new Error(`Failed to empty cart`);
+  }
+};
+
+export const userTotalCartPrice = async (userId: string) => {
+  try {
+    const cart = await getUserCart(userId);
+    if (isEmpty(cart)) {
+      logger.error("cart | Unable to get user cart");
+      throw new Error("Unable to get user cart");
+    }
+    const { products = [] } = cart;
+    let total = 0;
+    for (const { productId, quantity } of products) {
+      const product = await getProductById(`${productId}`);
+      if (isEmpty(product)) {
+        continue;
+      }
+      const { price = 0 } = product;
+      total += price * Number(quantity);
+    }
+    return total.toFixed(2);
+  } catch (error) {
+    logger.error({ error }, "cart | total price error");
+    throw new Error("Error while getting total cart price");
   }
 };
