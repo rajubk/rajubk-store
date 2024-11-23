@@ -28,7 +28,7 @@ const LogoutButton = ({ fullName }: { fullName: USER["name"] | undefined }) => {
     <form action={logoutAction}>
       {/* <button type="submit">Logout</button> */}
       <Popover content={`${firstname} ${lastname}`}>
-        <div className="w-full flex flex-col">
+        <div className="flex w-full flex-col">
           <Button variant="error" type="submit">
             {t("logout")}
           </Button>

@@ -11,7 +11,7 @@ import { revalidateUserCart } from "@/services/cart/action";
 const AddToCart = ({ productId }: { productId: number }) => {
   const [state, addToCartAction] = useFormState(
     addToCart.bind(null, productId),
-    null
+    null,
   );
   const {
     register,
@@ -55,7 +55,7 @@ const AddToCart = ({ productId }: { productId: number }) => {
     <form
       ref={formRef}
       onSubmit={handleSubmit(() =>
-        addToCartAction(new FormData(formRef.current!))
+        addToCartAction(new FormData(formRef.current!)),
       )}
       noValidate
       className="flex flex-col space-y-4"
@@ -72,7 +72,7 @@ const AddToCart = ({ productId }: { productId: number }) => {
           className="border px-2 py-1"
         />
         {errors.quantity && (
-          <div className="text-red-500 text-sm">{errors.quantity.message}</div>
+          <div className="text-sm text-red-500">{errors.quantity.message}</div>
         )}
       </div>
       <AddToCartButton />

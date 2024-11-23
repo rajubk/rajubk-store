@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 const Container = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-full h-full container max-w-5xl mx-auto py-8">
+    <div className="container mx-auto h-full w-full max-w-5xl py-8">
       {children}
     </div>
   );

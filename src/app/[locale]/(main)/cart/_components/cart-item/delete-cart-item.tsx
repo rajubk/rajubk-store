@@ -10,7 +10,7 @@ import { deleteCartItem, revalidateUserCart } from "@/services/cart/action";
 const DeleteCartItem = ({ productId }: { productId: number }) => {
   const [state, deleteCartAction] = useFormState(
     deleteCartItem.bind(null, productId),
-    null
+    null,
   );
   const { setNotification } = useNotificationConext();
 

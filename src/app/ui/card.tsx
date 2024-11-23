@@ -7,7 +7,7 @@ const Card = ({
   children: ReactNode;
   className?: string;
 }) => {
-  return <div className={`p-2 border rounded-md ${className}`}>{children}</div>;
+  return <div className={`rounded-md border p-2 ${className}`}>{children}</div>;
 };
 
 export default Card;

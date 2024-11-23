@@ -7,8 +7,8 @@ export default function MainLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="w-screen h-screen flex flex-col bg-slate-50">
-      <div className="w-full sticky top-0">
+    <div className="flex h-screen w-screen flex-col bg-slate-50">
+      <div className="sticky top-0 w-full">
         <Header />
       </div>
       <div className="flex-1">{children}</div>

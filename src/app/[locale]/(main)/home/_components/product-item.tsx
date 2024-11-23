@@ -10,18 +10,18 @@ const ProductItem = ({ product }: { product: Product }) => {
   const { image, price, id } = product;
 
   return (
-    <div className="w-full h-full flex flex-col space-y-4 shadow-lg bg-white">
-      <div className="flex-1 flex justify-center items-center">
+    <div className="flex h-full w-full flex-col space-y-4 bg-white shadow-lg">
+      <div className="flex flex-1 items-center justify-center">
         <Link href={`/product/${id}`}>
           <Image width={100} height={100} src={image} alt="img" />
         </Link>
       </div>
       <div className="flex flex-col bg-sky-50 p-2">
         <Link href={`/product/${id}`}>
-          <div className="font-bold text-sm">{product.title.slice(0, 20)}</div>
+          <div className="text-sm font-bold">{product.title.slice(0, 20)}</div>
         </Link>
-        <div className="flex justify-between items-center">
-          <div className="text-slate-500 text-xs">{`$${price.toFixed(2)}`}</div>
+        <div className="flex items-center justify-between">
+          <div className="text-xs text-slate-500">{`$${price.toFixed(2)}`}</div>
           <Button size="sm">{t("add_to_cart")}</Button>
         </div>
       </div>

@@ -17,7 +17,7 @@ const Button = ({
   return (
     <button
       className={cx(
-        "rounded-md flex justify-center items-center ",
+        "flex items-center justify-center rounded-md",
         {
           "bg-blue-500 text-white disabled:bg-gray-300": variant === "primary",
           border: variant === "secondary",
@@ -27,7 +27,7 @@ const Button = ({
           "px-[6px] py-[2px] text-[10px]": size === "sm",
           "px-4 py-2": size === "md",
         },
-        className.slice()
+        className.slice(),
       )}
       {...props}
     >

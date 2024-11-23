@@ -69,14 +69,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
+    <div className="flex h-full w-full flex-col items-center justify-center">
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="w-full md:w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg bg-white shadow-xl"
+        className="flex w-full flex-col items-center space-y-8 rounded-lg border bg-white p-8 shadow-xl md:w-1/2"
       >
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             placeholder="Full name"
             {...register("fullName", {
@@ -93,12 +93,12 @@ const RegisterForm = () => {
             className="w-full border p-2"
           />
           {errors.fullName && (
-            <div className="text-red-500 text-sm">
+            <div className="text-sm text-red-500">
               {errors.fullName.message}
             </div>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             placeholder="User name"
             {...register("user", {
@@ -115,10 +115,10 @@ const RegisterForm = () => {
             className="w-full border p-2"
           />
           {errors.user && (
-            <div className="text-red-500 text-sm">{errors.user.message}</div>
+            <div className="text-sm text-red-500">{errors.user.message}</div>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             type="password"
             placeholder="Password"
@@ -132,12 +132,12 @@ const RegisterForm = () => {
             className="w-full border p-2"
           />
           {errors.password && (
-            <div className="text-red-500 text-sm">
+            <div className="text-sm text-red-500">
               {errors.password?.message}
             </div>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             type="password"
             placeholder="Confirm password"
@@ -153,12 +153,12 @@ const RegisterForm = () => {
             className="w-full border p-2"
           />
           {errors.confirmPassword && (
-            <div className="text-red-500 text-sm">
+            <div className="text-sm text-red-500">
               {errors.confirmPassword?.message}
             </div>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             placeholder="Email"
             {...register("email", {
@@ -171,13 +171,13 @@ const RegisterForm = () => {
             className="w-full border p-2"
           />
           {errors.email && (
-            <div className="text-red-500 text-sm">{errors.email?.message}</div>
+            <div className="text-sm text-red-500">{errors.email?.message}</div>
           )}
         </div>
         <RegisterButton />
         <span>
           {`${t("have_account")}? `}
-          <Link className="text-blue-500 text-sm" href="/login">
+          <Link className="text-sm text-blue-500" href="/login">
             {t("login")}
           </Link>
         </span>

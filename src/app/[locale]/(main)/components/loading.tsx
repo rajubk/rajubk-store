@@ -4,11 +4,11 @@ const Loading = () => {
   return (
     <div
       role="status"
-      className="absolute inset-0 flex justify-center items-center bg-opacity-45 bg-slate-500"
+      className="absolute inset-0 flex items-center justify-center bg-slate-500 bg-opacity-45"
     >
       <svg
         aria-hidden="true"
-        className="w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+        className="h-20 w-20 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

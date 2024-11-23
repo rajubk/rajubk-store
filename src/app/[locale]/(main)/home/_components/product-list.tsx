@@ -4,7 +4,7 @@ import ProductItem from "./product-item";
 
 const ProductList = ({ products }: { products: Readonly<Product[]> }) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4">
       {(products ?? []).map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}

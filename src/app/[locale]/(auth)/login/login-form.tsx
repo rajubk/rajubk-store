@@ -45,14 +45,14 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
+    <div className="flex h-full w-full flex-col items-center justify-center">
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="w-full md:w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg bg-white shadow-xl"
+        className="flex w-full flex-col items-center space-y-8 rounded-lg border bg-white p-8 shadow-xl md:w-1/2"
       >
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             {...register("user", {
               minLength: {
@@ -68,10 +68,10 @@ const LoginForm = () => {
             className="w-full border p-2"
           />
           {errors.user && (
-            <div className="text-red-500 text-sm">{errors.user.message}</div>
+            <div className="text-sm text-red-500">{errors.user.message}</div>
           )}
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <input
             type="password"
             placeholder="Password"
@@ -85,7 +85,7 @@ const LoginForm = () => {
             className="w-full border p-2"
           />
           {errors.password && (
-            <div className="text-red-500 text-sm">
+            <div className="text-sm text-red-500">
               {errors.password?.message}
             </div>
           )}
@@ -93,7 +93,7 @@ const LoginForm = () => {
         <LoginButton />
         <span>
           {`${t("new_user")}? `}
-          <Link className="text-blue-500 text-sm" href="/register">
+          <Link className="text-sm text-blue-500" href="/register">
             Register
           </Link>
         </span>

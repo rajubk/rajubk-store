@@ -16,19 +16,19 @@ const InlineNotification = ({
   return (
     <div
       className={cx(
-        "w-full px-8 py-4 rounded-xl text-slate-700 flex justify-between items-center",
+        "flex w-full items-center justify-between rounded-xl px-8 py-4 text-slate-700",
         {
           "bg-green-300": severity === "success",
           "bg-blue-300": severity === "info",
           "bg-yellow-300": severity === "warning",
           "bg-red-300": severity === "error",
-        }
+        },
       )}
     >
       {message}
       <button
         onClick={clearNotification}
-        className="text-black font-extrabold text-lg"
+        className="text-lg font-extrabold text-black"
       >
         X
       </button>

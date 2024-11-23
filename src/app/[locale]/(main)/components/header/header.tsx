@@ -17,14 +17,14 @@ const Header = async () => {
   }
 
   return (
-    <div className="w-full bg-white flex justify-between shadow-lg px-4 md:px-8 py-2">
+    <div className="flex w-full justify-between bg-white px-4 py-2 shadow-lg md:px-8">
       <HeaderTitle />
-      <div className="flex items-center justify-start space-x-4 md:space-x-8 text-xl">
+      <div className="flex items-center justify-start space-x-4 text-xl md:space-x-8">
         <LanguageSelector />
         <Link href="/cart" className="relative">
           <FaCartShopping />
           <Conditional test={cart}>
-            <div className="absolute -right-2 -top-2 w-4 h-4 flex justify-center items-center bg-red-500 rounded-full">
+            <div className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500">
               <div className="text-xs text-white">{cart?.products?.length}</div>
             </div>
           </Conditional>

@@ -9,7 +9,7 @@ const CartItems = ({ cart }: { cart: Cart }) => {
 
   return (
     <>
-      <div className="w-full h-full flex flex-col px-4 py-8 space-y-8">
+      <div className="flex h-full w-full flex-col space-y-8 px-4 py-8">
         <Conditional test={!isEmpty(products)} fallback={<EmptyCart />}>
           {products.map((item) => (
             <CartItem key={item.productId} item={item} />
