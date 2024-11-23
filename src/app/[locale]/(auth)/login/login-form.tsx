@@ -6,6 +6,7 @@ import { useFormState } from "react-dom";
 import { loginUser, redirectHome } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface FormField {
   user: string;
@@ -13,6 +14,7 @@ interface FormField {
 }
 
 const LoginForm = () => {
+  const t = useTranslations();
   const [state, loginAction] = useFormState(loginUser, null);
   const {
     register,
@@ -90,7 +92,7 @@ const LoginForm = () => {
         </div>
         <LoginButton />
         <span>
-          New User?{" "}
+          {`${t("new_user")}? `}
           <Link className="text-blue-500 text-sm" href="/register">
             Register
           </Link>

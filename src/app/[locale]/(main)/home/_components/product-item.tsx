@@ -1,10 +1,12 @@
 import Button from "@/app/ui/button";
 import { Link } from "@/i18n/routing";
 import { Product } from "@/services/product/type";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
 const ProductItem = ({ product }: { product: Product }) => {
+  const t = useTranslations();
   const { image, price, id } = product;
 
   return (
@@ -20,7 +22,7 @@ const ProductItem = ({ product }: { product: Product }) => {
         </Link>
         <div className="flex justify-between items-center">
           <div className="text-slate-500 text-xs">{`$${price.toFixed(2)}`}</div>
-          <Button size="sm">Add to cart</Button>
+          <Button size="sm">{t("add_to_cart")}</Button>
         </div>
       </div>
     </div>

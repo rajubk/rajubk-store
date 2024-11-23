@@ -7,6 +7,7 @@ import { useNotificationConext } from "@/providers/notification-provider";
 import RegisterButton from "./register-button";
 import { ACTION_STATUS } from "@/utils/constants";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface FormField {
   fullName: string;
@@ -17,6 +18,7 @@ interface FormField {
 }
 
 const RegisterForm = () => {
+  const t = useTranslations();
   const [state, registerAction] = useFormState(registerUser, null);
   const {
     register,
@@ -174,9 +176,9 @@ const RegisterForm = () => {
         </div>
         <RegisterButton />
         <span>
-          Already having account?{" "}
+          {`${t("have_account")}? `}
           <Link className="text-blue-500 text-sm" href="/login">
-            Login
+            {t("login")}
           </Link>
         </span>
       </form>

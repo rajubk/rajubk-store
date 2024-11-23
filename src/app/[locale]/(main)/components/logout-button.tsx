@@ -7,8 +7,10 @@ import { ACTION_STATUS } from "@/utils/constants";
 import React, { useEffect } from "react";
 import { useFormState } from "react-dom";
 import UserProfile from "./user-profile";
+import { useTranslations } from "next-intl";
 
 const LogoutButton = ({ fullName }: { fullName: USER["name"] | undefined }) => {
+  const t = useTranslations();
   const [state, logoutAction] = useFormState(logoutUser, {
     status: ACTION_STATUS.NONE,
   });
@@ -28,7 +30,7 @@ const LogoutButton = ({ fullName }: { fullName: USER["name"] | undefined }) => {
       <Popover content={`${firstname} ${lastname}`}>
         <div className="w-full flex flex-col">
           <Button variant="error" type="submit">
-            Logout
+            {t("logout")}
           </Button>
           <UserProfile />
         </div>

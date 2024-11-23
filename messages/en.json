@@ -1,4 +1,13 @@
 {
   "title": "Raju BK Store",
-  "title_mobile": "Raju BK"
+  "title_mobile": "Raju BK",
+  "add_to_cart": "Add to cart",
+  "login": "Login",
+  "logout": "Logout",
+  "new_user": "New user",
+  "have_account": "Already have account",
+  "your_cart_empty": "Your cart is empty",
+  "click_here_to_add": "Click here to add items to your cart",
+  "order_total": "Order Total",
+  "checkout": "Checkout"
 }
