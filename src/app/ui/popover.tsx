@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import "./popover.css";
@@ -19,11 +18,11 @@ const Popover = ({
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = ({ target }: MouseEvent) => {
       if (
         popoverRef.current &&
-        !popoverRef.current.contains(event.target) &&
-        !triggerRef?.current?.contains(event.target)
+        !popoverRef.current.contains(target as Node) &&
+        !triggerRef?.current?.contains(target as Node)
       ) {
         setIsVisible(false); // Close the popover if clicked outside
       }

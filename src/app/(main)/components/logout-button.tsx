@@ -8,11 +8,11 @@ import React, { useEffect, useMemo } from "react";
 import { useFormState } from "react-dom";
 import UserProfile from "./user-profile";
 
-const LogoutButton = ({ fullName }: { fullName: USER["name"] }) => {
+const LogoutButton = ({ fullName }: { fullName: USER["name"] | undefined }) => {
   const [state, logoutAction] = useFormState(logoutUser, {
     status: ACTION_STATUS.NONE,
   });
-  const { firstname = "", lastname = "" } = fullName;
+  const { firstname = "", lastname = "" } = fullName || {};
   useEffect(() => {
     switch (state.status) {
       case ACTION_STATUS.SUCCESS:
