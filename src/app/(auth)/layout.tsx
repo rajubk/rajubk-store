@@ -5,5 +5,5 @@ export default function MainLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return <div className="w-screen h-screen">{children}</div>;
+  return <div className="w-screen h-screen bg-slate-50">{children}</div>;
 }

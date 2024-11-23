@@ -15,12 +15,12 @@ const Button = ({
   return (
     <button
       className={cx(
-        "px-4 py-2 text-white rounded-md flex justify-center items-center disabled:bg-gray-300",
+        "px-4 py-2 rounded-md flex justify-center items-center disabled:bg-gray-300",
         {
-          "bg-blue-500": variant === "primary",
-          "text-black border": variant === "secondary",
+          "bg-blue-500 text-white": variant === "primary",
+          border: variant === "secondary",
           "bg-transparent": variant === "naked",
-          "bg-red-500": variant === "error",
+          "bg-red-500 text-white": variant === "error",
         },
         className.slice()
       )}

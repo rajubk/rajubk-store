@@ -48,7 +48,7 @@ const LoginForm = () => {
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="w-full md:w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg"
+        className="w-full md:w-1/2 flex flex-col items-center space-y-8 border p-8 rounded-lg bg-white shadow-xl"
       >
         <div className="flex flex-col w-full">
           <input

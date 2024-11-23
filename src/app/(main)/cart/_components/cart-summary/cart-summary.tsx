@@ -1,4 +1,5 @@
 import Button from "@/app/ui/button";
+import Link from "next/link";
 import React from "react";
 
 const CartSummary = ({ cartTotal }: { cartTotal: string }) => {
@@ -8,7 +9,12 @@ const CartSummary = ({ cartTotal }: { cartTotal: string }) => {
       <div className="text-2xl text-slate-700 font-bold">
         Order Total: <span className="text-black">{`$${cartTotal}`}</span>
       </div>
-      <Button variant="primary">Checkout</Button>
+      <Link
+        href="/checkout"
+        className="px-4 py-2 flex justify-center items-center rounded-md bg-blue-500 text-white"
+      >
+        Checkout
+      </Link>
     </div>
   );
 };
