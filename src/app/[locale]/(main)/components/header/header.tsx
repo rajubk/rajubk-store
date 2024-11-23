@@ -6,6 +6,7 @@ import LogoutButton from "../logout-button";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "@/i18n/routing";
 import HeaderTitle from "./header-title";
+import LanguageSelector from "./language-selector";
 
 const Header = async () => {
   const user = await getLoggedUser();
@@ -19,6 +20,7 @@ const Header = async () => {
     <div className="w-full bg-white flex justify-between shadow-lg px-4 md:px-8 py-2">
       <HeaderTitle />
       <div className="flex items-center justify-start space-x-4 md:space-x-8 text-xl">
+        <LanguageSelector />
         <Link href="/cart" className="relative">
           <FaCartShopping />
           <Conditional test={cart}>

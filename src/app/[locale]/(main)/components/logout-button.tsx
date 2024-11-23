@@ -4,7 +4,7 @@ import Popover from "@/app/ui/popover";
 import { logoutUser } from "@/services/auth/action";
 import { USER } from "@/services/user/type";
 import { ACTION_STATUS } from "@/utils/constants";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useFormState } from "react-dom";
 import UserProfile from "./user-profile";
 
@@ -22,22 +22,17 @@ const LogoutButton = ({ fullName }: { fullName: USER["name"] | undefined }) => {
     }
   }, [state]);
 
-  const popoverContent = useMemo(
-    () => (
-      <div className="w-full flex flex-col">
-        <Button variant="error" type="submit">
-          Logout
-        </Button>
-        <UserProfile />
-      </div>
-    ),
-    []
-  );
-
   return (
     <form action={logoutAction}>
       {/* <button type="submit">Logout</button> */}
-      <Popover content={popoverContent}>{`${firstname} ${lastname}`}</Popover>
+      <Popover content={`${firstname} ${lastname}`}>
+        <div className="w-full flex flex-col">
+          <Button variant="error" type="submit">
+            Logout
+          </Button>
+          <UserProfile />
+        </div>
+      </Popover>
     </form>
   );
 };

@@ -46,7 +46,7 @@ const Popover = ({
         aria-controls="popover-content"
       >
         <span className="flex items-center">
-          {children}
+          {content}
           <MdOutlineArrowDropDown />
         </span>
       </button>
@@ -59,7 +59,7 @@ const Popover = ({
           role="dialog"
           aria-modal="true"
         >
-          {content}
+          {children}
         </div>
       )}
     </div>
