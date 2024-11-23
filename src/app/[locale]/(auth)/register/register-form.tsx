@@ -6,7 +6,7 @@ import { redirectHome, registerUser } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
 import RegisterButton from "./register-button";
 import { ACTION_STATUS } from "@/utils/constants";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 interface FormField {
   fullName: string;

@@ -1,4 +1,4 @@
-import Loading from "@/app/(main)/components/loading";
+import Loading from "@/app/[locale]/(main)/components/loading";
 import React from "react";
 
 const RegisterLoading = () => {

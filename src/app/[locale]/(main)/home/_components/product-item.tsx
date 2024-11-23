@@ -1,7 +1,7 @@
 import Button from "@/app/ui/button";
+import { Link } from "@/i18n/routing";
 import { Product } from "@/services/product/type";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const ProductItem = ({ product }: { product: Product }) => {

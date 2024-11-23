@@ -5,7 +5,7 @@ import LoginButton from "./login-button";
 import { useFormState } from "react-dom";
 import { loginUser, redirectHome } from "@/services/auth/action";
 import { useNotificationConext } from "@/providers/notification-provider";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 interface FormField {
   user: string;

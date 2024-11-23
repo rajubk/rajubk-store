@@ -3,7 +3,7 @@ import { getProductById } from "@/services/product/product";
 import Image from "next/image";
 import React from "react";
 import DeleteCartItem from "./delete-cart-item";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const CartItem = async ({ item }: { item: CartProduct }) => {
   const { productId, quantity } = item;

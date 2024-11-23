@@ -1,11 +1,11 @@
 import Conditional from "@/app/ui/conditional";
 import { getUserCart } from "@/services/cart/cart";
 import { getLoggedUser } from "@/services/user/user";
-import Link from "next/link";
 import React from "react";
-import LogoutButton from "./logout-button";
+import LogoutButton from "../logout-button";
 import { FaCartShopping } from "react-icons/fa6";
-import Image from "next/image";
+import { Link } from "@/i18n/routing";
+import HeaderTitle from "./header-title";
 
 const Header = async () => {
   const user = await getLoggedUser();
@@ -17,10 +17,7 @@ const Header = async () => {
 
   return (
     <div className="w-full bg-white flex justify-between shadow-lg px-4 md:px-8 py-2">
-      <Link href="/home" className="flex items-center space-x-2">
-        <Image src="/shop.png" width={24} height={24} alt="shop" />
-        <div className="font-extrabold text-2xl">RajuBK Store</div>
-      </Link>
+      <HeaderTitle />
       <div className="flex items-center justify-start space-x-4 md:space-x-8 text-xl">
         <Link href="/cart" className="relative">
           <FaCartShopping />
