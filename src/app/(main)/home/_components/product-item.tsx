@@ -8,7 +8,7 @@ const ProductItem = ({ product }: { product: Product }) => {
   const { image, price, id } = product;
 
   return (
-    <div className="w-full h-full flex flex-col space-y-4 shadow-lg">
+    <div className="w-full h-full flex flex-col space-y-4 shadow-lg bg-white">
       <div className="flex-1 flex justify-center items-center">
         <Link href={`/product/${id}`}>
           <Image width={100} height={100} src={image} alt="img" />
