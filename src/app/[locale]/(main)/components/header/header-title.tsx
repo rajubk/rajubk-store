@@ -8,6 +8,9 @@ const HeaderTitle = () => {
   return (
     <Link href="/home" className="flex items-center space-x-2">
       <Image src="/shop.png" width={24} height={24} alt="shop" />
+      <div className="md:hidden font-extrabold text-2xl">
+        {t("title_mobile")}
+      </div>
       <div className="hidden md:block font-extrabold text-2xl">
         {t("title")}
       </div>
